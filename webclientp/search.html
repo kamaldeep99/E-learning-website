@@ -1,0 +1,146 @@
+<html><head>
+	<meta charset="UTF-8">
+   <title>Planets</title>
+   
+   <script>  
+     
+	  
+     function searchcountryLoop()
+	 { 
+	   var arrName = ['germany','usa','france','italy','russia'];
+	   var arrDia = ['axis','axis','allies','allies','allies'];
+	   var arrDistance = [5523123123,5791453,13423566,149600000,227940000];
+	   var arrImages = ["./Pictures/R.png","./Pictures/Map-Of-The-Usa-1.jpg","./Pictures/francem.jpg","./Pictures/italymap.jpg","./Pictures/russia_political_map.jpg"];
+	   var pn = document.getElementById("ptextbox").value.toLowerCase(); 
+	   var index = 6;
+	
+		for (i = 0; i < 5; i++)
+		{ 
+		 if (pn == arrName[i])
+		     { index = i; }
+		}
+
+      
+      if(index >=0 && index <5)
+	       {
+	       document.getElementById("pname").innerHTML = arrName[index].toUpperCase();
+           document.getElementById("pimg").src = arrImages[index];
+	       document.getElementById("pdetail").innerHTML = "Population is " + arrDistance[index] + " and was part of team  "+ arrDia[index]  ;		 
+	       }
+	      else
+		  {
+		      alert('country not in war ');
+		      document.getElementById("pname").innerHTML = "";
+			  document.getElementById("pimg").src = "./Pictures/error.jpg";
+			  document.getElementById("pdetail").innerHTML = "country not involved in war so no answer"   ;
+	      }  
+	 }
+
+   </script>
+ </head>
+<body style="background-color: darkslategray;">
+	<a name="top"></a>
+	<h1 style="text-align: center;background-color: yellow;">Countries in world war </h1>
+	<div class="plan1" style="font-size: 31px;text-align: center;">		
+	
+		<br>Enter the name of the country:
+		<input type="text" id="ptextbox">
+		<button type="button" onclick="searchcountryLoop()" style="margin-left: 7px;font-size: 19px;">Search</button>
+		
+	</div>
+	<br>
+	
+		<div style="text-align: center;">
+		<h2 id="pname">Country Name</h2>
+			<p id="pdetail">Country Description</p>
+		</div>
+		<div style="text-align: center;">
+			<img id="pimg" src="./Pictures/world-war-3-large.jpg" alt="image map" width="75%" height="75%">
+			
+		</div>
+		
+		<br><br><br><br>
+
+		<div class="row">
+			<p>							
+			</p>
+			<a href="#Top">Go to the top</a>
+		</div>
+	
+ 
+ 
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script><!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body></html>

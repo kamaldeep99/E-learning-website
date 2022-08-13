@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" style="height: 119.6px;" lang="en-US"><head>
+  <!-- Kamaldeep Singh
+       Description: 
+     Date: 2021-00-00  -->
+    <title>Top Page</title>
+  <style >
+   
+   table{ background-color:#4dc74d; }
+   
+   
+   
+  
+  
+  </style>
+  <script>
+    
+
+  function authenticate_login()
+  {
+
+    
+  
+  
+  
+
+    var login_username="singh@project.ca";
+  var login_password="pass123";
+    var v1, v2;
+    v1 = document.getElementById("user").value;
+    
+    v2 = document.getElementById("pwd").value;
+    if ((v1 == login_username) &&
+        (v2 == login_password))
+    { var x = document.getElementById("b2");
+        if(x.style.display=="inline" )
+      {x.style.display = "none";}
+      else
+      {x.style.display = "inline";}
+      x=document.getElementById("b1");
+      x.style.display = "none";
+      
+      
+      alert('Welcome to our website');
+      parent.frames.Menu_Frame.location.href ="Menu.htm";
+      parent.frames.Content_Frame.location.href ="info2.htm";
+      
+      
+     
+     
+    }
+    else
+    {
+      alert('Invalid User or Password Login (use admin and 000000)');
+      document.getElementById("pwd").value="";
+      document.getElementById("pwd").focus();
+      parent.frames.Menu_Frame.location.href ="index.htm";
+    }
+  }
+  
+  
+
+
+  function authenticate_logout()
+  {
+    var x = document.getElementById("b1");
+        if(x.style.display=="inline" )
+      {x.style.display = "none";}
+      else
+      {x.style.display = "inline";}
+      x=document.getElementById("b2");
+      x.style.display = "none";
+    alert('Thank you!');
+    document.getElementById("user").value="";
+    document.getElementById("pwd").value="";
+    document.getElementById("user").focus();
+    parent.frames.Menu_Frame.location.href ="Menuwithoutlogin.htm";
+    parent.frames.Content_Frame.location.href ="info1.htm";
+
+  }
+  </script>
+  </head>
+  
+  <body >
+  
+  
+  
+  <table style="background-color: white;">
+    <tbody style="height: 66px;width: 1516.57px;background-color: darkslategrey;"><tr style="height: 66px;width: 1549.57px;">
+    <td style="width: 444.367px;height: 66px ;text-align: center;background-color: darkslategrey;"><img src="./Pictures/e233a09443be04bf1d50a4905a0627ea.jpg" alt="logo" style="height: 66px;width: 209.283px;"> </td>
+    <td style="height: 66px;width: 1096.983px;background-color: darkslategrey; "> <h1 style=" color: blue;font-size:30px;
+      text-align:center;
+      text-decoration:underline;">History</h1> </td>
+    <td style="width: 352.217px;height: 66.6px; background-color: darkslategrey;"> <form name="myForm" action="/action_page.php" onsubmit="return functionn()" method="post">
+      <div style="margin-left: 47px;width: 259.95px;"><p style="margin-left: 29px;width: 229.8px;margin-bottom: 4px;">User: <input type="text" name="firstname" id="user" style="margin-left: 0px;width: 170.667px;"></p>
+      
+      <p style="margin-top: 3px;margin-left: -2px;margin-bottom: 5px;">Password: <input type="password" name="pwd" id="pwd" style="width: 172.667px;"> </p></div>
+      
+      <input type="button" id="b1" onclick="authenticate_login()" value="Login "><span id="b2" style="display: none;"><input type="button"  onclick="authenticate_logout()" value="Logout"  style="float: right;margin-bottom: 9px;" ></span>
+    </form> </td>
+      
+      
+    
+  
+  
+  
+  
+    </tr>
+  </tbody></table>
+  
+  
+  
+  <!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body></html>
