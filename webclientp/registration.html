@@ -1,0 +1,186 @@
+<html><head>
+    <title>Responsive Login Form Design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+	
+	<script>
+		var startTime;
+		function validateForm() {
+			let fname = document.forms["myForm"]["firstName"].value;
+			if (fname == "") {
+				alert(" First Name must be filled out");
+				return false;
+			}
+			else if(!(/^[a-zA-Z]+$/.test(fname))) 
+			{ 
+				alert("Please only enter alpha characters");
+				return false;
+			}
+  
+			let lname = document.forms["myForm"]["lastName"].value;
+			if (lname == "") {
+				alert(" Last Name must be filled out");
+				return false;
+			}	
+			else if(!(/^[a-zA-Z]+$/.test(lname)))
+			{ 
+				alert("Please only enter alpha characters"); 
+				return false; 
+			}
+			let address = document.forms["myForm"]["address"].value;
+			if (address == "") {
+				alert(" Address must be filled out");
+				return false;
+			}	
+			let number = document.forms["myForm"]["phoneNumber"].value;
+			if (number.length != 10) {
+				alert(" Enter 10 digit in phone number");
+				return false;
+			}
+			else if(!(/^[789][0-9]{9}$/.test(number)))
+			{ 
+			alert("Please start number with 7,8 or 9");
+			return false; 
+			}
+			let postalcode = document.forms["myForm"]["postalcode"].value;
+			if (postalcode.length !=6) {
+				alert(" Enter 6 digit in postal code");
+				return false;
+			}	
+			let eid = document.forms["myForm"]["email"].value;
+				if (eid == "") {
+				alert(" Enter email id");
+				return false;
+			}	
+			else if(!(/^[A-Za-z_]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/.test(eid))) 
+			{ 
+				alert("Please enter valid format like abc12@gmail.com");
+				return false;
+			}
+
+			
+			let password = document.forms["myForm"]["password"].value;
+			if (password == "") {
+				alert(" Enter the password");
+				return false;
+			}	
+			/*else if(!(/^[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(password))) 
+			{ 
+				alert("Please enter password in required format (special character,one lowercase,one upper case,1 digit and no less than 8 character)"); 
+				return false;
+			}*/
+
+
+	}
+	function runTime() {
+			// startTime = Date.now();
+			startTime = new Date();
+			startTime = startTime.getTime();
+		}
+
+		function storeCookie() {
+			// console.log("Enter into store cookie");
+			let endTime = new Date();
+			endTime = endTime.getTime();
+			let difference = endTime - startTime
+			let temp = Math.round(difference/6000)/100;
+			console.log("testsss   ", temp);
+			setCookie("firstName", document.getElementById("firstName").value, 8);
+			setCookie("lastName", document.getElementById("lastName").value, 8);
+			setCookie("address", document.getElementById("address").value, 8);
+			setCookie("province", document.getElementById("province").value, 8);
+			setCookie("phoneNumber", document.getElementById("phoneNumber").value, 8);
+			setCookie("postalcode", document.getElementById("postalcode").value, 8);
+			setCookie("email", document.getElementById("email").value, 8);
+			setCookie("time", (endTime - startTime) / 1000, 8);
+			// setCookie("time", (Date.now() - startTime) / 1000, 8);
+		}
+
+		function showCookie() {
+			document.getElementById("firstName").innerHTML = getCookie("firstName");
+			document.getElementById("lastName").innerHTML = getCookie("lastName");
+			document.getElementById("address").innerHTML = getCookie("address");
+			document.getElementById("province").innerHTML = getCookie("province");
+			document.getElementById("phoneNumber").innerHTML = getCookie("phoneNumber");
+			document.getElementById("postalcode").innerHTML = getCookie("postalcode");
+			document.getElementById("email").innerHTML = getCookie("email");
+			document.getElementById("time").innerHTML = getCookie("time");
+		}
+
+		function setCookie(cname, cvalue, exdays) {
+			const d = new Date();
+			d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+			let expires = "expires=" + d.toUTCString();
+			document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+
+		function getCookie(cname) 
+		{
+			let name = cname + "=";
+			let ca = document.cookie.split(';');
+
+			for (let i = 0; i < ca.length; i++) {
+				let c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+
+				if (c.indexOf(name) == 0) {
+					return c.substring(name.length, c.length);
+				}
+			}
+
+			return "";
+
+		}
+	
+
+	</script>
+	</head>
+	<body style="background-image: url(./Pictures/regipic.jpg);background-size: cover;" onload="runTime()" > 	
+     <div style="text-align:center">
+         <div>
+			
+             <h1 style="color:tomato;">User Registration</h1>
+         </div>
+         <form class="form" method="post" action="cookie.html" name="myForm"  >
+             <fieldset>
+            <div class="signup">
+                <p  style="font-weight: 800;"onclick="return validateForm()" >
+					First name:<input id="firstName"  type="text" placeholder="kamaldeep" required="" name="fname" style="margin-left: 28px;width: 139.667px;">
+                </p>
+                
+				
+                    <p  style="margin-left: 0px;font-weight: 800;"onclick="return validateForm()" >Last name:<input id="lastName" type="text" placeholder="singh" required="" name="lname" style="margin-left: 30px;width: 139.667px;"></p>
+					
+                
+				
+                    <p  style="margin-left: 0px;font-weight: 800;" onclick="return validateForm()">Address:<input id="address" type="text" placeholder="Address" required="" style="width: 139.667px;margin-left: 44px;"></p>
+                    <p style="font-weight: 800;" onclick="return validateForm()">Province:<select id="province" style="margin-left: 39px;width: 139.667px;">
+                        <option value="none"  >---PROVINCE---</option>
+                        <option value="ontario" >ONTARIO</option>
+                        <option value="BC" >BC</option>
+                        <option value="Alberta" >ALBERTA</option>
+                        <option value="QUEBEC" >QUEBEC</option>
+                    </select></p>
+                
+				
+					
+					<p  style="font-weight: 800;"onclick="return validateForm()" >Phone number<input id="phoneNumber" type="number" placeholder="8971234562" required="" name="number" style="margin-left: 7px;width: 139.667px;"></p>
+					<p  style="font-weight: 800;" onclick="return validateForm()">Postal code<input id="postalcode" type="text" placeholder="H3H2G7" required="" name="text" style="margin-left: 25px;width: 139.667px;"></p>
+                  
+                
+                
+                <p  style="font-weight: 800;"onclick="return validateForm()" >Email:<input id="email" type="email" placeholder="abc@gmail.com" required="" style="margin-left: 56px;width: 139.667px;"></p>
+                <p  style="font-weight: 800;" onclick="return validateForm()">Password:<input type="password" placeholder="Password" required="" id="password" style="margin-left: 31px;width: 139.667px;"></p>
+                
+                <button onclick="storeCookie()" type="submit" class="btn">SIGN UP</button>
+                
+				
+            </div>
+        </fieldset>
+            </form></div>
+         
+     
+
+</body></html>

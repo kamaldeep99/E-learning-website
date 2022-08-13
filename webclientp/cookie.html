@@ -1,0 +1,114 @@
+<html><head></head><body ><table class="table table-bordered table-striped">
+
+
+    <thead>
+
+        <tr>
+
+            <th>Key</th>
+
+            <th>Value</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <tr>
+
+            <td>First Name :</td>
+
+            <td id="firstName"></td>
+
+        </tr>
+
+        <tr>
+
+            <td>lastName :</td>
+
+            <td id="lastName"></td>
+
+        </tr>
+        
+
+        <tr>
+
+            <td>address :</td>
+
+            <td id="address"></td>
+
+        </tr>
+        <tr>
+
+            <td>province :</td>
+
+            <td >Ontario</td>
+
+        </tr>
+
+        <tr>
+
+            <td>phoneNumber :</td>
+
+            <td id="phoneNumber"></td>
+
+        </tr>
+        <tr>
+
+            <td>postalcode :</td>
+
+            <td id="postalcode"></td>
+
+        </tr>
+        <tr>
+
+            <td>email :</td>
+
+            <td id="email"></td>
+
+        </tr>
+        <tr>
+
+            <td>Time :</td>
+
+            <td id="time"></td>
+
+        </tr>
+        
+        
+    </tbody>
+
+</table>
+<script>
+    function showCookie() {
+        document.getElementById("firstName").innerHTML = getCookie("firstName");
+        document.getElementById("lastName").innerHTML = getCookie("lastName");
+        document.getElementById("address").innerHTML = getCookie("address");
+        document.getElementById("phoneNumber").innerHTML = getCookie("phoneNumber");
+        document.getElementById("postalcode").innerHTML = getCookie("postalcode");
+        document.getElementById("email").innerHTML = getCookie("email");
+        document.getElementById("time").innerHTML = getCookie("time");
+}
+function getCookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+
+    return "";
+
+}
+
+showCookie();
+</script>
+</body></html>
